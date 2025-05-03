@@ -60,6 +60,43 @@ class TaskManager {
             return;
         }
 
+        filtered.forEach(task => {
+            const li = document.createElement('li');
+            li.className = `p-4 rounded-lg shadow border flex justify-between items-start ${task.status === 'done' ? 'bg-green-100' : 'bg-yellow-50'}`;
+
+            li.innerHTML = `
+        <div>
+          <h3 class="font-semibold text-lg">${task.content}</h3>
+          <p class="text-sm text-gray-600">
+            ${task.user} • ${task.createdAt}<br>
+            ${task.priority} • ${task.category} • ${task.status === 'done' ? 'Zakończone' : 'Oczekujące'}
+          </p>
+        </div>
+        <div class="space-x-2">
+          <button class="toggle-status bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded" data-id="${task.id}">
+            ${task.status === 'done' ? '↩Cofnij' : 'Gotowe'}
+          </button>
+          <button class="delete-task bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" data-id="${task.id}">Usuń</button>
+        </div>`;
+
+            list.appendChild(li);
+        });
+
+        document.querySelectorAll('.toggle-status').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = Number(btn.dataset.id);
+                this.toggleStatus(id);
+            });
+        });
+
+        document.querySelectorAll('.delete-task').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = Number(btn.dataset.id);
+                this.deleteTask(id);
+            });
+        });
+
+
     }
 }
 
