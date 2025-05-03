@@ -35,4 +35,9 @@ class TaskManager {
         this.tasks = this.tasks.filter(t => t.id !== id);
         this.saveAndRender();
     }
+
+    saveAndRender() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        this.renderTasks(currentFilter, currentCategory);
+    }
 }
