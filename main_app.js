@@ -40,4 +40,26 @@ class TaskManager {
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
         this.renderTasks(currentFilter, currentCategory);
     }
+
+    renderTasks(statusFilter = 'all', categoryFilter = 'all') {
+        const list = document.getElementById('task-list');
+        list.innerHTML = '';
+
+        let filtered = [...this.tasks];
+
+        if (statusFilter !== 'all') {
+            filtered = filtered.filter(t => t.status === statusFilter);
+        }
+
+        if (categoryFilter !== 'all') {
+            filtered = filtered.filter(t => t.category === categoryFilter);
+        }
+
+        if (filtered.length === 0) {
+            list.innerHTML = '<p class="text-center text-gray-500">Brak zadań.</p>';
+            return;
+        }
+
+    }
 }
+
