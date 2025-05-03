@@ -12,15 +12,15 @@
   <h1 class="text-3xl font-bold text-center mb-6">Task Manager</h1>
 
   <form class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-    <label for="task-content"></label><input id="task-content" type="text" placeholder="Zadanie..." class="p-2 border rounded w-full" />
-    <label for="task-user"></label><input id="task-user" type="text" placeholder="Użytkownik..." class="p-2 border rounded w-full" />
-    <label for="task-priority"></label><select id="task-priority" class="p-2 border rounded w-full">
+    <input id="task-content" type="text" placeholder="Zadanie..." class="p-2 border rounded w-full" />
+    <input id="task-user" type="text" placeholder="Użytkownik..." class="p-2 border rounded w-full" />
+    <select id="task-priority" class="p-2 border rounded w-full">
       <option value="low">Niski priorytet</option>
       <option value="medium">Średni priorytet</option>
       <option value="high">Wysoki priorytet</option>
     </select>
 
-    <label for="task-category"></label><select id="task-category" class="p-2 border rounded w-full col-span-1 md:col-span-2">
+    <select id="task-category" class="p-2 border rounded w-full col-span-1 md:col-span-2">
       <option value="praca">Praca</option>
       <option value="nauka">Nauka</option>
       <option value="hobby">Hobby</option>
@@ -34,7 +34,7 @@
       <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="pending">Oczekujące</button>
       <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="done">Zakończone</button>
     </div>
-    <label for="filter-category"></label><select id="filter-category" class="border p-2 rounded min-w-[180px]">
+    <select id="filter-category" class="border p-2 rounded min-w-[180px]">
       <option value="all">Wszystkie kategorie</option>
       <option value="praca">Praca</option>
       <option value="nauka">Nauka</option>
