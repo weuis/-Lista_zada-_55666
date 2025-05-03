@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg">
+  <h1 class="text-3xl font-bold text-center mb-6">📝 Task Manager</h1>
+
+  <div class="grid md:grid-cols-3 gap-4 mb-6">
+    <label for="task-content"></label><input id="task-content" type="text" placeholder="Zadanie..." class="p-2 border rounded" />
+    <label for="task-user"></label><input id="task-user" type="text" placeholder="Użytkownik..." class="p-2 border rounded" />
+    <label for="task-priority"></label><select id="task-priority" class="p-2 border rounded">
+      <option value="low">Niski priorytet</option>
+      <option value="medium">Średni priorytet</option>
+      <option value="high">Wysoki priorytet</option>
+    </select>
+  </div>
+  <button id="add-task" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded mb-6">Dodaj Zadanie</button>
+
+  <div class="flex justify-between mb-4">
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="all">Wszystkie</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="pending">Oczekujące</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="done">Zakończone</button>
+  </div>
+
+  <ul id="task-list" class="space-y-3"></ul>
+</div>
+
+<script src="main_app.js"></script>
+</body>
+</html>
