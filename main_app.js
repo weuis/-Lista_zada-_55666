@@ -15,4 +15,11 @@ class TaskManager {
         this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         this.renderTasks();
     }
+
+    addTask(content, user, priority, category) {
+        const id = Date.now();
+        const newTask = new Task(id, content, user, priority, category);
+        this.tasks.push(newTask);
+        this.saveAndRender();
+    }
 }
