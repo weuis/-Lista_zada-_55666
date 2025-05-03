@@ -74,7 +74,7 @@ class TaskManager {
         </div>
         <div class="space-x-2">
           <button class="toggle-status bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded" data-id="${task.id}">
-            ${task.status === 'done' ? '↩Cofnij' : 'Gotowe'}
+            ${task.status === 'done' ? 'Cofnij' : 'Gotowe'}
           </button>
           <button class="delete-task bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" data-id="${task.id}">Usuń</button>
         </div>`;
@@ -96,7 +96,39 @@ class TaskManager {
             });
         });
 
-
     }
 }
+
+const taskManager = new TaskManager();
+let currentFilter = 'all';
+let currentCategory = 'all';
+
+document.getElementById('add-task').addEventListener('click', () => {
+    const content = document.getElementById('task-content').value.trim();
+    const user = document.getElementById('task-user').value.trim();
+    const priority = document.getElementById('task-priority').value;
+    const category = document.getElementById('task-category').value;
+
+    if (!content || !user) {
+        alert('Wpisz treść i użytkownika!');
+        return;
+    }
+
+    taskManager.addTask(content, user, priority, category);
+
+    document.getElementById('task-content').value = '';
+    document.getElementById('task-user').value = '';
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        currentFilter = btn.dataset.filter;
+        taskManager.renderTasks(currentFilter, currentCategory);
+    });
+});
+
+document.getElementById('filter-category').addEventListener('change', (e) => {
+    currentCategory = e.target.value;
+    taskManager.renderTasks(currentFilter, currentCategory);
+});
 
