@@ -30,4 +30,9 @@ class TaskManager {
             this.saveAndRender();
         }
     }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(t => t.id !== id);
+        this.saveAndRender();
+    }
 }
