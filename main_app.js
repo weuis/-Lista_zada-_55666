@@ -22,4 +22,12 @@ class TaskManager {
         this.tasks.push(newTask);
         this.saveAndRender();
     }
+
+    toggleStatus(id) {
+        const task = this.tasks.find(t => t.id === id);
+        if (task) {
+            task.status = task.status === 'pending' ? 'done' : 'pending';
+            this.saveAndRender();
+        }
+    }
 }
