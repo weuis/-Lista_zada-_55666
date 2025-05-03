@@ -5,38 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Task Manager</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 <div class="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg">
   <h1 class="text-3xl font-bold text-center mb-6">Task Manager</h1>
 
-  <div class="grid md:grid-cols-3 gap-4 mb-4">
-    <label for="task-content"></label><input id="task-content" type="text" placeholder="Zadanie..." class="p-2 border rounded" />
-    <label for="task-user"></label><input id="task-user" type="text" placeholder="Użytkownik..." class="p-2 border rounded" />
-    <label for="task-priority"></label><select id="task-priority" class="p-2 border rounded">
-      <option value="low"> Niski priorytet </option>
-      <option value="medium"> Średni priorytet </option>
-      <option value="high"> Wysoki priorytet </option>
+  <form class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+    <label for="task-content"></label><input id="task-content" type="text" placeholder="Zadanie..." class="p-2 border rounded w-full" />
+    <label for="task-user"></label><input id="task-user" type="text" placeholder="Użytkownik..." class="p-2 border rounded w-full" />
+    <label for="task-priority"></label><select id="task-priority" class="p-2 border rounded w-full">
+      <option value="low">Niski priorytet</option>
+      <option value="medium">Średni priorytet</option>
+      <option value="high">Wysoki priorytet</option>
     </select>
-  </div>
 
-  <div class="grid md:grid-cols-3 gap-4 mb-4">
-    <label for="task-category"></label><select id="task-category" class="p-2 border rounded">
+    <label for="task-category"></label><select id="task-category" class="p-2 border rounded w-full col-span-1 md:col-span-2">
       <option value="praca">Praca</option>
       <option value="nauka">Nauka</option>
       <option value="hobby">Hobby</option>
     </select>
-    <button id="add-task" class="col-span-2 w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded">Dodaj Zadanie</button>
-  </div>
+    <button id="add-task" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded col-span-1 md:col-span-1">Dodaj Zadanie</button>
+  </form>
 
-  <div class="flex flex-wrap justify-between gap-2 mb-4">
+  <div class="flex flex-wrap md:justify-between justify-center items-center gap-3 mb-4">
     <div class="space-x-2">
       <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="all">Wszystkie</button>
       <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="pending">Oczekujące</button>
       <button class="filter-btn bg-gray-200 px-4 py-2 rounded" data-filter="done">Zakończone</button>
     </div>
-
-    <label for="filter-category"></label><select id="filter-category" class="border p-2 rounded">
+    <label for="filter-category"></label><select id="filter-category" class="border p-2 rounded min-w-[180px]">
       <option value="all">Wszystkie kategorie</option>
       <option value="praca">Praca</option>
       <option value="nauka">Nauka</option>
@@ -46,6 +44,5 @@
 
   <ul id="task-list" class="space-y-3"></ul>
 </div>
-
 </body>
 </html>
