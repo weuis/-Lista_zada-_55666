@@ -9,3 +9,10 @@ class Task {
         this.createdAt = new Date().toLocaleString();
     }
 }
+
+class TaskManager {
+    constructor() {
+        this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        this.renderTasks();
+    }
+}
